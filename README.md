@@ -29,3 +29,4 @@ This script also could be tidied up using functions at some point.  This is a qu
 
 - The U.S. state displayed is the state that the callsign is registered in for SOTA, and possibly RBN, DXCC, and PSKReporter spots.  It's the state the park is in for POTA.  See the HamAlert parameters explanation on the hamalert.org website, under the Destinations tab.
 - I have not yet tested this with non U.S. callsigns or non U.S. summits and parks.  Come to think of it, I probably should.  Yikes.
+- Time, so far, is only displayed in UTC
