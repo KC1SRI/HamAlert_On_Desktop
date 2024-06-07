@@ -14,7 +14,7 @@ Python libraries:
 
 # Prerequisites
 
-In HamAlert, under the "Destinations" tab, enter the ntfy.sh server and topic URL you are using as the destination for a POST request, and be sure to have that already set up in ntfy.sh
+In HamAlert, under the "Destinations" tab, enter the ntfy.sh server and topic URL you are using as the destination for a POST request, and be sure to have that topic and URL already set up in ntfy.sh.
 Under "Triggers", be sure to configure each trigger you want showing up in this script to have "URL" as a destination in addition to the app.
 
 This python script opens a stream to the JSON endpoint of the aforementioned ntfy.sh topic, and displays HamAlert notifications you have set according to your triggers into your terminal.
