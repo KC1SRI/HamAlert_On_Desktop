@@ -43,7 +43,7 @@ mastodon_list = mastodon_callsigns.split(", ")
 # print(mastodon_list)
 
 # ---- Spin up the stream from https://ntfy.sh server you're using
-resp = requests.get("", stream=True) #URL of the JSON endpoint for the ntfy server you are using  It's the URL of your subscribed topic with /json appended to the end
+resp = requests.get("https://ntfy.fediverse.radio/KC1SRI_HamAlert/json", stream=True) #URL of the JSON endpoint for the ntfy server you are using  It's the URL of your subscribed topic with /json appended to the end
 
 # ---- Process the stream from nfty and print out to your terminal
 for line in resp.iter_lines():
@@ -102,9 +102,22 @@ for line in resp.iter_lines():
 
             else:
                 source = "[" + rbn_psk_dx_color + "]" + parsed_msg['source'] + "[/" + rbn_psk_dx_color + "]"
-                state = "[" + state_color + "]" + parsed_msg['state'] + "[/" + state_color + "]"
                 if "comment" in parsed_msg.keys():
                     comment = "[" + comment_color + "]" + parsed_msg['comment'] + "[/" + comment_color + "]"
-                    rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source  + " " + state + " " + comment)
+                    if "state[0]" in parsed_msg.keys():
+                        state = "[" + state_color + "]" + parsed_msg['state[0]'] + "[/" + state_color + "]"
+                        rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source + separator + state + separator + comment)
+                    elif "state" in parsed_msg.keys():
+                        state = "[" + state_color + "]" + parsed_msg['state'] + "[/" + state_color + "]"
+                        rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source + separator + state + separator + comment)
+                    else:
+                        rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source + separator + comment)
                 else:
-                    rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source + " " + state)
+                    if "state[0]" in parsed_msg.keys():
+                        state = "[" + state_color + "]" + parsed_msg['state[0]'] + "[/" + state_color + "]"
+                        rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source + separator + state)
+                    elif "state" in parsed_msg.keys():
+                        state = "[" + state_color + "]" + parsed_msg['state'] + "[/" + state_color + "]"
+                        rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source + separator + state)
+                    else:
+                        rprint(time + separator + callsign + separator + frequency + " " + mode + separator + source)
