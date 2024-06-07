@@ -24,3 +24,8 @@ The script has a number of parameters, including colors, a list of callsigns tha
 This script is primarily set up to display how I use HamAlert. Non POTA and SOTA notifications are lumped together, color-wise, and there is no differentiation of digital modes.  Feel free to fork, download, and alter as you see fit!
 
 This script also could be tidied up using functions at some point.  This is a quick and dirty verison.
+
+# Things to know:
+
+- The U.S. state displayed is the state that the callsign is registered in for SOTA, and possibly RBN, DXCC, and PSKReporter spots.  It's the state the park is in for POTA.  See the HamAlert parameters explanation on the hamalert.org website, under the Destinations tab.
+- I have not yet tested this with non U.S. callsigns or non U.S. summits and parks.  Come to think of it, I probably should.  Yikes.
