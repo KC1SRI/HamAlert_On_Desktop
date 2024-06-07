@@ -1,4 +1,4 @@
-# HamAlert_On_Desktop
+# HamAlert_On_Desktop v 0.1
 Python script to display HamAlert notifications on desktop using ntfy.sh
 
 # Dependencies
